@@ -1,0 +1,96 @@
+spring:
+  datasource:
+    ds1:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.1.224:5432/dzybdb
+      username: postgres
+      password: root
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 6000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+    ds2:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.1.224:5432/dazhouECDB
+      username: postgres
+      password: root
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 6000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+    ds3:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.1.224:5432/dazhouomsdb
+      username: postgres
+      password: root
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 6000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:    # 密码（默认为空）
+    timeout: 6000ms  # 连接超时时长（毫秒）
+    jedis:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 5       # 连接池中的最小空闲连接
+  activiti:
+    check-process-definitions: false
+##多数据源的配置，需要引用renren-dynamic-datasource
+#dynamic:
+#  datasource:
+#    slave1:
+#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      url: jdbc:sqlserver://123456:1433;DatabaseName=security_enterprise
+#      username: sa
+#      password: 123456
+#    slave2:
+#      driver-class-name: org.postgresql.Driver
+#      url: jdbc:postgresql://123456:5432/security_enterprise
+#      username: postgres
+#      password: 123456
+
+#============================================================================
+# netty socket io setting
+#============================================================================
+# host在本地测试可以设置为localhost或者本机IP，在Linux服务器跑可换成服务器IP
+#socketio:
+#  host: 11.89.22.152
+#  port: 9099
+#  # 设置最大每帧处理数据的长度，防止他人利用大数据来攻击服务器
+#  maxFramePayloadLength: 1048576
+#  # 设置http交互最大内容长度
+#  maxHttpContentLength: 1048576
+#  # socket连接数大小（如只监听一个端口boss线程组为1即可）
+#  bossCount: 1
+#  workCount: 100
+#  allowCustomRequests: true
+#  # 协议升级超时时间（毫秒），默认10秒。HTTP握手升级为ws协议超时时间
+#  upgradeTimeout: 1000000
+#  # Ping消息超时时间（毫秒），默认60秒，这个时间间隔内没有接收到心跳消息就会发送超时事件
+#  pingTimeout: 6000000
+#  # Ping消息间隔（毫秒），默认25秒。客户端向服务器发送一条心跳消息间隔
+#  pingInterval: 25000
+#
+
+mybatis-plus:
+  configuration:
+    #开启mybatis sql日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
