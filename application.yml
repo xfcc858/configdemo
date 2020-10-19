@@ -4,9 +4,9 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 9909
+  port: 3355
   servlet:
-    context-path: /dazhou
+    context-path: /config
     session:
       cookie:
         http-only: true
