@@ -1,4 +1,4 @@
 mybatis-plus:
   configuration:
     #开启mybatis sql日志打印
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl3
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl5
